@@ -4,7 +4,7 @@ import styles from './burgerIngredients.module.css';
 
 function BurgerIngredients() {
     return (
-        <section className={`${styles.burgerBox}`}>
+        <section className={`${styles.burgerBox} pb-10`}>
             <h1 className='text text_type_main-large'>Соберите бургер</h1>
             <TabBox />
             <Ingredients />
