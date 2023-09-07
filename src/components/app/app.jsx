@@ -7,7 +7,7 @@ function App() {
   return (
     <div className={`${styles.app} pt-10 pl-10 pr-10`}>
       	<AppHeader />
-        <Content />
+        <Content data={data}/>
     </div>
   );
 }
