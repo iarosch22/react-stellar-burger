@@ -1,5 +1,6 @@
 import styles from './indgredientItem.module.css';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import { Counter } from '@ya.praktikum/react-developer-burger-ui-components';
 
 function IndgredientItem(props) {
     return (
@@ -9,6 +10,7 @@ function IndgredientItem(props) {
                 <span className='text text_type_digits-default'>{props.price}</span><CurrencyIcon type="primary" />
             </p>
             <p className={`${styles.description} text text_type_main-default`}>{props.name}</p>
+            {props.count ? <Counter count={props.count} size="default" extraClass="m-1" /> : null}
         </div>
     )
 }
