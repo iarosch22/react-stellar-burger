@@ -33,7 +33,7 @@ function BurgerIngredients(props) {
                     {
                         props.data.map(item => {
                             if(item.type === "sauce") {
-                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} key={item._id} />
+                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
                             }
 
                             return null;
@@ -41,14 +41,14 @@ function BurgerIngredients(props) {
                     }
                 </div>
             </section>
-            
+
             <section className={`${styles.menuBox}`}>
                 <h2 className='text text_type_main-medium'>Начинки</h2>
                 <div className={`${styles.menu}`}>
                     {
                         props.data.map(item => {
                             if(item.type === "main") {
-                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} key={item._id} />
+                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
                             }
 
                             return null;
