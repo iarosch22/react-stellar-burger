@@ -12,50 +12,44 @@ function BurgerIngredients(props) {
             <TabBox />
             <div className={`${styles.ingredients} custom-scroll`}>
 
-            <section className={`${styles.menuBox}`}>
-                <h2 className='text text_type_main-medium'>Булки</h2>
-                <div className={`${styles.menu}`}>
-                    {
-                        props.data.map(item => {
-                            if(item.type === "bun") {
-                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
-                            }
+                <section className={`${styles.menuBox}`}>
+                    <h2 className='text text_type_main-medium'>Булки</h2>
+                    <div className={`${styles.menu}`}>
+                        {
+                            props.data.map(item => {
+                                if(item.type === "bun") {
+                                    return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
+                                }
+                            })
+                        }
+                    </div>
+                </section>
 
-                            return null;
-                        })
-                    }
-                </div>
-            </section>
+                <section className={`${styles.menuBox} mt-20`}>
+                    <h2 className='text text_type_main-medium'>Соусы</h2>
+                    <div className={`${styles.menu}`}>
+                        {
+                            props.data.map(item => {
+                                if(item.type === "sauce") {
+                                    return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
+                                }
+                            })
+                        }
+                    </div>
+                </section>
 
-            <section className={`${styles.menuBox} mt-20`}>
-                <h2 className='text text_type_main-medium'>Соусы</h2>
-                <div className={`${styles.menu}`}>
-                    {
-                        props.data.map(item => {
-                            if(item.type === "sauce") {
-                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
-                            }
-
-                            return null;
-                        })
-                    }
-                </div>
-            </section>
-
-            <section className={`${styles.menuBox}`}>
-                <h2 className='text text_type_main-medium'>Начинки</h2>
-                <div className={`${styles.menu}`}>
-                    {
-                        props.data.map(item => {
-                            if(item.type === "main") {
-                                return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
-                            }
-
-                            return null;
-                        })
-                    }
-                </div>
-            </section>
+                <section className={`${styles.menuBox}`}>
+                    <h2 className='text text_type_main-medium'>Начинки</h2>
+                    <div className={`${styles.menu}`}>
+                        {
+                            props.data.map(item => {
+                                if(item.type === "main") {
+                                    return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
+                                }
+                            })
+                        }
+                    </div>
+                </section>
             </div>
         </section>
     )

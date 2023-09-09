@@ -9,7 +9,7 @@ function Content(props) {
     return (
         <main className={`${styles.content} pt-10`}>
             <BurgerIngredients data={data}/>
-            <BurgerConstructor/>
+            <BurgerConstructor data={data}/>
         </main>
       );
 }

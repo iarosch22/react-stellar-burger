@@ -1,3 +1,19 @@
 .constructorBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
+.bunBox {
+
+}
+
+.mainBox {
+    height: 464px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
