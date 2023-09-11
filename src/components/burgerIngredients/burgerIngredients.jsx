@@ -20,7 +20,7 @@ function BurgerIngredients( { data } ) {
                         {
                             ingredients.map(item => {
                                 if(item.type === "bun") {
-                                    return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
+                                    return <IndgredientItem ingredient={item} key={item._id} />
                                 }
                             })
                         }
@@ -33,7 +33,7 @@ function BurgerIngredients( { data } ) {
                         {
                             ingredients.map(item => {
                                 if(item.type === "sauce") {
-                                    return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
+                                    return <IndgredientItem ingredient={item} key={item._id} />
                                 }
                             })
                         }
@@ -46,7 +46,7 @@ function BurgerIngredients( { data } ) {
                         {
                             ingredients.map(item => {
                                 if(item.type === "main") {
-                                    return <IndgredientItem _id={item._id} image={item.image} price={item.price} name={item.name} count={item.__v} key={item._id} />
+                                    return <IndgredientItem ingredient={item} key={item._id} />
                                 }
                             })
                         }
