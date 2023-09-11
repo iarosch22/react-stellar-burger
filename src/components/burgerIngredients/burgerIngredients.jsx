@@ -15,7 +15,7 @@ function BurgerIngredients( { data } ) {
             <div className={`${styles.ingredients} custom-scroll`}>
 
                 <section className={`${styles.menuBox}`}>
-                    <h2 className='text text_type_main-medium'>Булки</h2>
+                    <h2 className='text text_type_main-medium' id='bun'>Булки</h2>
                     <div className={`${styles.menu}`}>
                         {
                             ingredients.map(item => {
@@ -28,7 +28,7 @@ function BurgerIngredients( { data } ) {
                 </section>
 
                 <section className={`${styles.menuBox} mt-20`}>
-                    <h2 className='text text_type_main-medium'>Соусы</h2>
+                    <h2 className='text text_type_main-medium' id='sause'>Соусы</h2>
                     <div className={`${styles.menu}`}>
                         {
                             ingredients.map(item => {
@@ -41,7 +41,7 @@ function BurgerIngredients( { data } ) {
                 </section>
 
                 <section className={`${styles.menuBox}`}>
-                    <h2 className='text text_type_main-medium'>Начинки</h2>
+                    <h2 className='text text_type_main-medium' id='filling'>Начинки</h2>
                     <div className={`${styles.menu}`}>
                         {
                             ingredients.map(item => {

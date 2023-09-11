@@ -3,7 +3,7 @@ import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import React from 'react';
 
 function TabBox() {
-    const [current, setCurrent] = React.useState('bread');
+    const [current, setCurrent] = React.useState('bun');
 
     const setTab = (tab) => {
         setCurrent(tab);
@@ -13,9 +13,9 @@ function TabBox() {
 
     return(
         <div className={`${styles.tabBox} mt-5 mb-20`}>
-            <Tab value="bread" active={current === 'bread'} onClick={setCurrent}>Булки</Tab>
-            <Tab value="sause" active={current === 'sause'} onClick={setCurrent}>Соусы</Tab>
-            <Tab value="filling" active={current === 'filling'} onClick={setCurrent}>Начинки</Tab>
+            <Tab value="bun" active={current === 'bun'} onClick={setTab}>Булки</Tab>
+            <Tab value="sause" active={current === 'sause'} onClick={setTab}>Соусы</Tab>
+            <Tab value="filling" active={current === 'filling'} onClick={setTab}>Начинки</Tab>
         </div>
     )
 }
