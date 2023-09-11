@@ -2,8 +2,8 @@ import TabBox from './tabBox/tabBox';
 import styles from './burgerIngredients.module.css';
 import IndgredientItem from '../ingredientItem/ingredientItem';
 import React from 'react';
-import PropTypes from "prop-types";
-import { ingredientPropType } from '../../utils/prop-types';
+import { PropTypes } from 'prop-types';
+import ingredientPropType from '../../utils/prop-types';
 
 function BurgerIngredients( { data } ) {
     const [ingredients, setIngredients] = React.useState(data);
@@ -58,7 +58,7 @@ function BurgerIngredients( { data } ) {
 }
 
 BurgerIngredients.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.ingredientPropType).isRequired
-}
+    data: PropTypes.arrayOf(ingredientPropType).isRequired
+};
 
 export default BurgerIngredients;
