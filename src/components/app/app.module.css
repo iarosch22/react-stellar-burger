@@ -1,7 +1,13 @@
 .app {
   display: flex;
   flex-direction: column;
+  
+
+  max-width: 2000px;
+  margin: 0 auto;
   height: 100vh;
+
   background-color: #131316;
+
   color: #f2f2f3;
 }

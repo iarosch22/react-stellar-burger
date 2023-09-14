@@ -1,0 +1,12 @@
+.userbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+
+    margin-left: 288px;
+
+    max-width: 207px;
+}
+

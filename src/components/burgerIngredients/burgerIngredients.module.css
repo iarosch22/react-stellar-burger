@@ -1,0 +1,27 @@
+.burgerBox {
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredients {
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+
+    height: 460px;
+}
+
+.menuBox {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.menu {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}

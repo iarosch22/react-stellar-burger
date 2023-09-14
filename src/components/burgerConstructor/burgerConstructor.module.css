@@ -1,0 +1,28 @@
+.constructorBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mainBox {
+    height: 464px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btnBox {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.priceBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
