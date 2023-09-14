@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/app/app";
 import reportWebVitals from "./reportWebVitals";
-import { Box } from "@ya.praktikum/react-developer-burger-ui-components";
-import { Typography } from "@ya.praktikum/react-developer-burger-ui-components";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -91,11 +91,9 @@ function Content(props) {
         }
       ]
 
-    const [data, setData] = React.useState([...props.data]);
-
     return (
         <main className={`${styles.content} pt-10`}>
-            <BurgerIngredients data={data}/>
+            <BurgerIngredients data={[...props.data]}/>
             <BurgerConstructor data={dataIngredients}/>
         </main>
       );
