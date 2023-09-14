@@ -17,4 +17,8 @@ function IndgredientItem( { ingredient } ) {
     )
 }
 
+IndgredientItem.propTypes = {
+    ingredient: ingredientPropType
+};
+
 export default IndgredientItem;
