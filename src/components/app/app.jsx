@@ -3,6 +3,7 @@ import AppHeader from "../appHeader/appHeader";
 import Content from "../content/content";
 import React from "react";
 import Modal from "../modal/modal";
+import { data } from "../../utils/data";
 
 function App() {
   const URL = 'https://norma.nomoreparties.space/api/ingredients';
@@ -15,7 +16,7 @@ function App() {
   React.useEffect(() => {
     const getIngredientData = async () => {
       setState( {...state, loading: true} );
-      fetch('https://norma.nomoreparties.space/api/ingredients')
+      fetch(URL)
       .then(res => res.json())
       .then(data => setState( {ingredientData: data.data, loading: false} ))
       .catch(e => console.log(e))
@@ -30,12 +31,12 @@ function App() {
     <>
       <div className={`${styles.app} pt-10 pl-10 pr-10`}>
           <AppHeader />
-          {
+          {/* {
             !loading &&
             <Content data={ingredientData} />
-          }
+          } */}
+          <Content data={data} />
       </div>
-      <Modal />
     </>
 
   );

@@ -2,6 +2,7 @@ import styles from './content.module.css';
 import BurgerIngredients from '../burgerIngredients/burgerIngredients';
 import React from 'react';
 import BurgerConstructor from '../burgerConstructor/burgerConstructor';
+import Modal from '../modal/modal';
 
 function Content(props) {
     const dataIngredients = [
@@ -92,10 +93,13 @@ function Content(props) {
       ]
 
     return (
-        <main className={`${styles.content} pt-10`}>
+      <>
+         <main className={`${styles.content} pt-10`}>
             <BurgerIngredients data={[...props.data]}/>
             <BurgerConstructor data={dataIngredients}/>
-        </main>
+         </main>
+         <Modal />
+      </>
       );
 }
 
