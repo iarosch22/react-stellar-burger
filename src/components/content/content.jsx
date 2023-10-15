@@ -92,13 +92,34 @@ function Content(props) {
         }
       ]
 
+    const [visibility, setVisibility] = React.useState(false);
+
+    const handleOpenModal = () => {
+        setVisibility( {visibility: true} );
+    };
+
+    const handleCloseModal = () => {
+        setVisibility( {visibility: false} );
+    };
+
+    React.useEffect(() => {
+        console.log(visibility);
+    }, [visibility])
+
+    const logTo = () => {
+        console.log('close')
+    }
+
     return (
       <>
          <main className={`${styles.content} pt-10`}>
             <BurgerIngredients data={[...props.data]}/>
-            <BurgerConstructor data={dataIngredients}/>
+            <BurgerConstructor data={dataIngredients} onOpen={handleOpenModal}/>
          </main>
-         <Modal />
+         {
+            visibility &&
+            <Modal onClose={handleCloseModal} />
+         }
       </>
       );
 }
