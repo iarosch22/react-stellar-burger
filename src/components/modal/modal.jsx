@@ -13,7 +13,6 @@ function Modal(props) {
                 <span className={`${styles.icon}`} onClick={props.onClose}>
                     <CloseIcon type="primary" />
                 </span>
-                <div className={`${styles.container}`}></div>
             </div>
         </>
 

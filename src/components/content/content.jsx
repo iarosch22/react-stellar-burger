@@ -95,11 +95,11 @@ function Content(props) {
     const [visibility, setVisibility] = React.useState(false);
 
     const handleOpenModal = () => {
-        setVisibility( {visibility: true} );
+        setVisibility(true);
     };
 
     const handleCloseModal = () => {
-        setVisibility( {visibility: false} );
+        setVisibility(false);
     };
 
     React.useEffect(() => {

@@ -31,10 +31,11 @@ function App() {
     <>
       <div className={`${styles.app} pt-10 pl-10 pr-10`}>
           <AppHeader />
-          {
+          {/* {
             !loading &&
             <Content data={ingredientData} />
-          }
+          } */}
+          <Content data={data}/>
       </div>
     </>
 
