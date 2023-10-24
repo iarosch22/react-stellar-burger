@@ -13,17 +13,17 @@ function App() {
     loading: true
   });
 
-  React.useEffect(() => {
-    const getIngredientData = async () => {
-      setState( {...state, loading: true} );
-      fetch(URL)
-      .then(res => res.json())
-      .then(data => setState( {ingredientData: data.data, loading: false} ))
-      .catch(e => console.log(e))
-    }
+  // React.useEffect(() => {
+  //   const getIngredientData = async () => {
+  //     setState( {...state, loading: true} );
+  //     fetch(URL)
+  //     .then(res => res.json())
+  //     .then(data => setState( {ingredientData: data.data, loading: false} ))
+  //     .catch(e => console.log(e))
+  //   }
 
-    getIngredientData();
-  }, [])
+  //   getIngredientData();
+  // }, [])
 
   const { ingredientData, loading } = state;
 

@@ -102,10 +102,6 @@ function Content(props) {
         setVisibility(false);
     };
 
-    React.useEffect(() => {
-        console.log(visibility);
-    }, [visibility])
-
     const logTo = () => {
         console.log('close')
     }
