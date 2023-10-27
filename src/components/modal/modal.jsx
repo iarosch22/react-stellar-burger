@@ -4,7 +4,7 @@ import ModalOverlay from "./modalOverlay/modalOverlay";
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import React from "react";
 
-function Modal( { onClose } ) {
+function Modal( { onClose, children } ) {
     const modalRoot = document.getElementById("react-modals");
 
     React.useEffect(() => {
@@ -28,6 +28,7 @@ function Modal( { onClose } ) {
                 <span className={`${styles.icon}`} onClick={onClose}>
                     <CloseIcon type="primary" />
                 </span>
+                {children}
             </div>
         </>
 

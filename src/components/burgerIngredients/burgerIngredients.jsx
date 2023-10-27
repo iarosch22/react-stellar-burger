@@ -5,7 +5,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import ingredientPropType from '../../utils/prop-types';
 
-function BurgerIngredients( { data } ) {
+function BurgerIngredients( { data, whatIs } ) {
     const [ingredients, setIngredients] = React.useState(data);
 
     return (
@@ -20,7 +20,7 @@ function BurgerIngredients( { data } ) {
                         {
                             ingredients.map(item => {
                                 if(item.type === "bun") {
-                                    return <IndgredientItem ingredient={item} key={item._id} />
+                                    return <IndgredientItem ingredient={item} key={item._id} whatIs={whatIs} />
                                 }
                             })
                         }
@@ -33,7 +33,7 @@ function BurgerIngredients( { data } ) {
                         {
                             ingredients.map(item => {
                                 if(item.type === "sauce") {
-                                    return <IndgredientItem ingredient={item} key={item._id} />
+                                    return <IndgredientItem ingredient={item} key={item._id} whatIs={whatIs} />
                                 }
                             })
                         }
@@ -46,7 +46,7 @@ function BurgerIngredients( { data } ) {
                         {
                             ingredients.map(item => {
                                 if(item.type === "main") {
-                                    return <IndgredientItem ingredient={item} key={item._id} />
+                                    return <IndgredientItem ingredient={item} key={item._id} onClick={whatIs} />
                                 }
                             })
                         }

@@ -3,6 +3,7 @@ import BurgerIngredients from '../burgerIngredients/burgerIngredients';
 import React from 'react';
 import BurgerConstructor from '../burgerConstructor/burgerConstructor';
 import Modal from '../modal/modal';
+import OrderDetails from '../modal/orderDetails/orderDetails';
 
 function Content(props) {
     const dataIngredients = [
@@ -106,15 +107,21 @@ function Content(props) {
         console.log('close')
     }
 
+    const whatIs = (event, key) => {
+      console.log(event.currentTarget.id);
+    }
+
     return (
       <>
          <main className={`${styles.content} pt-10`}>
-            <BurgerIngredients data={[...props.data]}/>
+            <BurgerIngredients data={[...props.data]} whatIs={whatIs}/>
             <BurgerConstructor data={dataIngredients} onOpen={handleOpenModal}/>
          </main>
          {
             visibility &&
-            <Modal onClose={handleCloseModal} />
+            <Modal onClose={handleCloseModal}>
+               <OrderDetails />
+            </Modal>
          }
       </>
       );
