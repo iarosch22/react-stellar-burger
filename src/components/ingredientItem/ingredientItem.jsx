@@ -4,9 +4,9 @@ import { Counter } from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from 'prop-types';
 import ingredientPropType from '../../utils/prop-types';
 
-function IndgredientItem( { ingredient, whatIs } ) {
+function IndgredientItem( { ingredient, openIngredient } ) {
     return (
-        <div className={`${styles.item} pb-6`} key={ingredient._id} id={ingredient._id} onClick={whatIs} >
+        <div className={`${styles.item} pb-6`} key={ingredient._id} id={ingredient._id} onClick={openIngredient} >
             <img src={ingredient.image} alt="" className={`${styles.img}`} />
             <p className={`${styles.pricebox}`}>
                 <span className='text text_type_digits-default'>{ingredient.price}</span><CurrencyIcon type="primary" />

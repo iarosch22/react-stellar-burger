@@ -4,8 +4,9 @@ import React from 'react';
 import BurgerConstructor from '../burgerConstructor/burgerConstructor';
 import Modal from '../modal/modal';
 import OrderDetails from '../modal/orderDetails/orderDetails';
+import IngredientDetails from '../modal/ingredientDetails/ingredientDetails';
 
-function Content(props) {
+function Content( { data } ) {
     const dataIngredients = [
         {
            "_id":"60666c42cc7b410027a1a9b1",
@@ -92,35 +93,47 @@ function Content(props) {
            "__v":0
         }
       ]
-
-    const [visibility, setVisibility] = React.useState(false);
+    const [popup, setPopup] = React.useState({  
+         visibility: false,
+         isOrder: false,
+         ingredientInfo: '',
+         orderList: []
+      });
 
     const handleOpenModal = () => {
-        setVisibility(true);
+        setPopup( {...popup, visibility: true} )
     };
 
     const handleCloseModal = () => {
-        setVisibility(false);
+         setPopup( {...popup, visibility: false} )
     };
 
-    const logTo = () => {
-        console.log('close')
+    const openIngredient = (event) => {
+      const ingredientId = event.currentTarget.id;
+
+      const ingredient = data.find(item => item._id === ingredientId);
+
+      setPopup( {...popup, visibility: true, isOrder: false, ingredientInfo: ingredient} );
     }
 
-    const whatIs = (event, key) => {
-      console.log(event.currentTarget.id);
+    const openOrder = () => {
+      setPopup( {...popup, visibility: true, isOrder: true} );
     }
 
     return (
       <>
          <main className={`${styles.content} pt-10`}>
-            <BurgerIngredients data={[...props.data]} whatIs={whatIs}/>
-            <BurgerConstructor data={dataIngredients} onOpen={handleOpenModal}/>
+            <BurgerIngredients data={[...data]} openIngredient={openIngredient}/>
+            <BurgerConstructor data={dataIngredients} onOpen={openOrder}/>
          </main>
          {
-            visibility &&
+            popup.visibility &&
             <Modal onClose={handleCloseModal}>
-               <OrderDetails />
+               { 
+               popup.isOrder ?
+               <OrderDetails /> :
+               <IngredientDetails {...popup.ingredientInfo}/>
+               }
             </Modal>
          }
       </>
