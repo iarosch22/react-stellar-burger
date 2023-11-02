@@ -18,7 +18,8 @@ function IndgredientItem( { ingredient, openIngredient } ) {
 }
 
 IndgredientItem.propTypes = {
-    ingredient: ingredientPropType
+    ingredient: ingredientPropType.isRequired,
+    openIngredient: PropTypes.func.isRequired
 };
 
 export default IndgredientItem;

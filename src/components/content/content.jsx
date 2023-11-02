@@ -5,6 +5,8 @@ import BurgerConstructor from '../burgerConstructor/burgerConstructor';
 import Modal from '../modal/modal';
 import OrderDetails from '../modal/orderDetails/orderDetails';
 import IngredientDetails from '../modal/ingredientDetails/ingredientDetails';
+import ingredientPropType from '../../utils/prop-types';
+import { PropTypes } from 'prop-types';
 
 function Content( { data } ) {
     const dataIngredients = [
@@ -132,7 +134,7 @@ function Content( { data } ) {
                { 
                popup.isOrder ?
                <OrderDetails /> :
-               <IngredientDetails {...popup.ingredientInfo}/>
+               <IngredientDetails ingredient={popup.ingredientInfo}/>
                }
             </Modal>
          }
@@ -140,5 +142,8 @@ function Content( { data } ) {
       );
 }
 
+Content.propTypes = {
+   data: PropTypes.arrayOf(ingredientPropType).isRequired
+}
 
 export default Content;
