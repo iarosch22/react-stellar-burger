@@ -95,16 +95,12 @@ function Content( { data } ) {
            "__v":0
         }
       ]
-    const [popup, setPopup] = React.useState({  
+    const [popup, setPopup] = React.useState({
          visibility: false,
          isOrder: false,
          ingredientInfo: '',
          orderList: []
       });
-
-    const handleOpenModal = () => {
-        setPopup( {...popup, visibility: true} )
-    };
 
     const handleCloseModal = () => {
          setPopup( {...popup, visibility: false} )
@@ -131,7 +127,7 @@ function Content( { data } ) {
          {
             popup.visibility &&
             <Modal onClose={handleCloseModal}>
-               { 
+               {
                popup.isOrder ?
                <OrderDetails /> :
                <IngredientDetails ingredient={popup.ingredientInfo}/>
