@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.title {
+    max-width: 520px;
+
+    align-self: flex-start;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    width: 520px;
+}
+
+.name {
+    max-width: 520px;
+}
+
+.textbox {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.textbox_item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}

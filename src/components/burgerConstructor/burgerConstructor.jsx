@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import ingredientPropType from '../../utils/prop-types';
 import React from 'react';
 
-function BurgerConstructor( { data } ) {
+function BurgerConstructor( {data, onOpen} ) {
     const [ingredients, setIngredients] = React.useState(data);
 
     const totalPrice = ingredients.reduce((prev, obj) => {
@@ -44,14 +44,15 @@ function BurgerConstructor( { data } ) {
             </div>
             <div className={`${styles.btnBox}`}>
                 <span className={`${styles.priceBox} text text_type_digits-medium`}>{totalPrice}<CurrencyIcon type="primary" /></span>
-                <Button htmlType="button" type="primary" size="large">Оформить заказ</Button>
+                <Button htmlType="button" type="primary" size="large" onClick={onOpen}>Оформить заказ</Button>
             </div>
         </section>
     )
 }
 
 BurgerConstructor.propTypes = {
-    data: PropTypes.arrayOf(ingredientPropType).isRequired
+    data: PropTypes.arrayOf(ingredientPropType).isRequired,
+    onOpen: PropTypes.func.isRequired
 };
 
 export default BurgerConstructor;

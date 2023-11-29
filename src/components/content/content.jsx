@@ -2,8 +2,13 @@ import styles from './content.module.css';
 import BurgerIngredients from '../burgerIngredients/burgerIngredients';
 import React from 'react';
 import BurgerConstructor from '../burgerConstructor/burgerConstructor';
+import Modal from '../modal/modal';
+import OrderDetails from '../modal/orderDetails/orderDetails';
+import IngredientDetails from '../modal/ingredientDetails/ingredientDetails';
+import ingredientPropType from '../../utils/prop-types';
+import { PropTypes } from 'prop-types';
 
-function Content(props) {
+function Content( { data } ) {
     const dataIngredients = [
         {
            "_id":"60666c42cc7b410027a1a9b1",
@@ -90,16 +95,51 @@ function Content(props) {
            "__v":0
         }
       ]
+    const [popup, setPopup] = React.useState({
+         visibility: false,
+         isOrder: false,
+         ingredientInfo: '',
+         orderList: []
+      });
 
-    const [data, setData] = React.useState([...props.data]);
+    const handleCloseModal = () => {
+         setPopup( {...popup, visibility: false} )
+    };
+
+    const openIngredient = (event) => {
+      const ingredientId = event.currentTarget.id;
+
+      const ingredient = data.find(item => item._id === ingredientId);
+
+      setPopup( {...popup, visibility: true, isOrder: false, ingredientInfo: ingredient} );
+    }
+
+    const openOrder = () => {
+      setPopup( {...popup, visibility: true, isOrder: true} );
+    }
 
     return (
-        <main className={`${styles.content} pt-10`}>
-            <BurgerIngredients data={data}/>
-            <BurgerConstructor data={dataIngredients}/>
-        </main>
+      <>
+         <main className={`${styles.content} pt-10`}>
+            <BurgerIngredients data={[...data]} openIngredient={openIngredient}/>
+            <BurgerConstructor data={dataIngredients} onOpen={openOrder}/>
+         </main>
+         {
+            popup.visibility &&
+            <Modal onClose={handleCloseModal}>
+               {
+               popup.isOrder ?
+               <OrderDetails /> :
+               <IngredientDetails ingredient={popup.ingredientInfo}/>
+               }
+            </Modal>
+         }
+      </>
       );
 }
 
+Content.propTypes = {
+   data: PropTypes.arrayOf(ingredientPropType).isRequired
+}
 
 export default Content;
