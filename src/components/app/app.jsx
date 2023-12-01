@@ -2,7 +2,7 @@ import styles from "./app.module.css";
 import AppHeader from "../appHeader/appHeader";
 import Content from "../content/content";
 import React from "react";
-import { checkReponse } from "../../utils/burger-api";
+import { checkReponse, getIngredientData } from "../../utils/burger-api";
 
 function App() {
   const URL = 'https://norma.nomoreparties.space/api/ingredients';
@@ -14,15 +14,18 @@ function App() {
   });
 
   React.useEffect(() => {
-    const getIngredientData = async () => {
-      setState( {...state, loading: true} );
-      fetch(URL)
-      .then(checkReponse)
+    // const getIngredientData = async () => {
+    //   setState( {...state, loading: true} );
+    //   fetch(URL)
+    //   .then(checkReponse)
+    //   .then(data => setState( {ingredientData: data.data, loading: false} ))
+    //   .catch(e => setState( {...state, hasError: true, loading: false} ))
+    // }
+
+    // getIngredientData();
+      getIngredientData(URL)
       .then(data => setState( {ingredientData: data.data, loading: false} ))
       .catch(e => setState( {...state, hasError: true, loading: false} ))
-    }
-
-    getIngredientData();
   }, [])
 
   const { ingredientData, loading, hasError } = state;
