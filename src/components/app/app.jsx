@@ -1,34 +1,33 @@
 import styles from "./app.module.css";
 import AppHeader from "../appHeader/appHeader";
 import Content from "../content/content";
-import React from "react";
+import { useEffect, useState } from "react";
 import { checkReponse, getIngredientData } from "../../utils/burger-api";
+import { useDispatch, useSelector } from "react-redux";
+import { getIngredients } from "../../services/actions/ingredients";
 
 function App() {
-  const URL = 'https://norma.nomoreparties.space/api/ingredients';
-
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     ingredientData: null,
     loading: false,
     hasError: false
   });
 
-  React.useEffect(() => {
-    // const getIngredientData = async () => {
-    //   setState( {...state, loading: true} );
-    //   fetch(URL)
-    //   .then(checkReponse)
-    //   .then(data => setState( {ingredientData: data.data, loading: false} ))
-    //   .catch(e => setState( {...state, hasError: true, loading: false} ))
-    // }
-
-    // getIngredientData();
-      getIngredientData(URL)
+  useEffect(() => {
+      getIngredientData()
       .then(data => setState( {ingredientData: data.data, loading: false} ))
       .catch(e => setState( {...state, hasError: true, loading: false} ))
   }, [])
 
   const { ingredientData, loading, hasError } = state;
+
+  // const dispatch = useDispatch();
+
+  // const { ingredients } = useSelector(store => store.ingredients);
+
+  // useEffect(() => {
+  //   dispatch(getIngredients());
+  // }, [dispatch])
 
   return (
     <>
